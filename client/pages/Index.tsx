@@ -64,7 +64,7 @@ export default function Index() {
           </p>
 
           <p className="text-sm leading-relaxed text-[#111111]">
-            You can reach me at <a href="mailto:benji@benji.org" className="text-[#2563EB] hover:underline">me@whysuhail.xyz</a> or <a href="https://x.com/suhaillahmadd" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] hover:underline">@suhaillahmadd</a>.
+            You can reach me at <a href="mailto:me@whysuhail.xyz" className="text-[#2563EB] hover:underline">me@whysuhail.xyz</a> or <a href="https://x.com/suhaillahmadd" target="_blank" rel="noopener noreferrer" className="text-[#2563EB] hover:underline">@suhaillahmadd</a>.
           </p>
         </section>
 
