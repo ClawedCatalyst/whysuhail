@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { blogPosts } from "@/data/blogPosts";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -49,10 +50,11 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white dark:bg-[#0a0a0a]">
+        <ThemeToggle />
         <div className="max-w-4xl mx-auto px-8 md:px-16 lg:px-32 pt-16 md:pt-24 pb-32 md:pb-48">
-          <h1 className="text-2xl font-semibold text-[#111111] mb-4">Post Not Found</h1>
-          <Link to="/" className="text-[#2563EB] hover:underline">
+          <h1 className="text-2xl font-semibold text-[#111111] dark:text-[#FAFAFA] mb-4">Post Not Found</h1>
+          <Link to="/" className="text-[#2563EB] dark:text-[#60A5FA] hover:underline">
             ← Back to home
           </Link>
         </div>
@@ -61,7 +63,8 @@ export default function BlogPost() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a]">
+      <ThemeToggle />
       <div className="relative">
         {/* Main Content Container */}
         <div className="max-w-4xl mx-auto px-8 md:px-16 lg:px-32">
@@ -76,8 +79,8 @@ export default function BlogPost() {
                       onClick={() => scrollToSection(section.title)}
                       className={`block text-left text-sm transition-colors w-full ${
                         isActive
-                          ? "text-[#111111] font-semibold"
-                          : "text-[#999999] hover:text-[#111111]"
+                          ? "text-[#111111] dark:text-[#FAFAFA] font-semibold"
+                          : "text-[#999999] dark:text-[#666666] hover:text-[#111111] dark:hover:text-[#FAFAFA]"
                       }`}
                     >
                       {section.title}
@@ -92,18 +95,18 @@ export default function BlogPost() {
           {/* Back Link */}
           <Link
             to="/"
-            className="inline-block text-sm text-[#2563EB] hover:underline mb-8 md:mb-12"
+            className="inline-block text-sm text-[#2563EB] dark:text-[#60A5FA] hover:underline mb-8 md:mb-12"
           >
             ← Back
           </Link>
 
           {/* Header */}
           <header className="mb-8 md:mb-12">
-            <div className="text-sm text-[#999999] mb-2">{post.period}</div>
-            <h1 className="text-2xl font-semibold text-[#111111] mb-2">
+            <div className="text-sm text-[#999999] dark:text-[#666666] mb-2">{post.period}</div>
+            <h1 className="text-2xl font-semibold text-[#111111] dark:text-[#FAFAFA] mb-2">
               {post.title}
             </h1>
-            <p className="text-sm text-[#777777]">{post.description}</p>
+            <p className="text-sm text-[#777777] dark:text-[#A0A0A0]">{post.description}</p>
           </header>
 
           {/* Content Sections */}
@@ -116,14 +119,14 @@ export default function BlogPost() {
                 }}
                 className="space-y-3 md:space-y-4 scroll-mt-24"
               >
-                <h2 className="text-sm font-semibold text-[#111111]">
+                <h2 className="text-sm font-semibold text-[#111111] dark:text-[#FAFAFA]">
                   {section.title}
                 </h2>
                 <div className="space-y-3 md:space-y-4">
                   {section.content.map((paragraph, pIndex) => (
                     <p
                       key={pIndex}
-                      className="text-sm leading-relaxed text-[#111111]"
+                      className="text-sm leading-relaxed text-[#111111] dark:text-[#FAFAFA]"
                     >
                       {paragraph}
                     </p>
